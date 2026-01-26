@@ -37,14 +37,8 @@ jobs:
           cd terraform
           terraform validate
 
-      - name: Terraform Plan
+      - name: Terraform Plan (CI Validation)
         run: |
           cd terraform
           terraform plan
-
-      - name: Terraform Apply (Refresh State Only)
-        if: github.ref == 'refs/heads/main'
-        run: |
-          cd terraform
-          terraform apply -refresh-only -auto-approve
 
