@@ -42,9 +42,9 @@ jobs:
           cd terraform
           terraform plan
 
-      - name: Terraform Apply
+      - name: Terraform Apply (Refresh State Only)
         if: github.ref == 'refs/heads/main'
         run: |
           cd terraform
-          terraform apply -auto-approve
+          terraform apply -refresh-only -auto-approve
 
