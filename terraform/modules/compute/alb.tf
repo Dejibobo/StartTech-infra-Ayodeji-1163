@@ -1,8 +1,9 @@
-resource "aws_lb" "app_alb" {
-  name               = "starttech-alb"
+# modules/compute/alb.tf
+resource "aws_lb" "frontend" {
+  name               = "starttech-frontend"
   load_balancer_type = "application"
-  security_groups    = [var.alb_sg]
   subnets            = var.public_subnets
+  security_groups    = [var.alb_sg]
 }
 
 resource "aws_lb_target_group" "app_tg" {

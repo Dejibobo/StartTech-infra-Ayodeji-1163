@@ -1,8 +1,14 @@
+# modules/compute/outputs.tf
+
+# Output the ALB DNS name
 output "alb_dns" {
-  value = aws_lb.app_alb.dns_name
+  description = "DNS name of the frontend ALB"
+  value       = aws_lb.frontend.dns_name
 }
 
+# Output the ASG name
 output "asg_name" {
-  value = aws_autoscaling_group.backend_asg.name
+  description = "Name of the Auto Scaling Group"
+  value       = aws_autoscaling_group.backend_asg.name
 }
 
