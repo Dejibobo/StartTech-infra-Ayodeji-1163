@@ -1,4 +1,5 @@
 # modules/compute/alb.tf
+
 resource "aws_lb" "frontend" {
   name               = "starttech-frontend"
   load_balancer_type = "application"
@@ -19,7 +20,7 @@ resource "aws_lb_target_group" "app_tg" {
 }
 
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.app_alb.arn
+  load_balancer_arn = aws_lb.frontend.arn   # <-- fixed here
   port              = 80
   protocol          = "HTTP"
 
